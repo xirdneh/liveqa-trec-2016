@@ -1,0 +1,7 @@
+beautifulsoup4
+nltk
+scipy
+numpy
+gensim
+html5lib
+lxml
