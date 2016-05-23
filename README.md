@@ -8,8 +8,7 @@ a probability distribution for each of the retrieved documents from the knowledg
 Distance (JSD) is calculated to have a symilarity measure and the most similar answer is selected as the returned answer.
 The knowledge base used right now is the yahoo answers database. 
 
-Leverages on:
-
+**Leverages on**:
   - [beautifulsoup4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
   - [scipy](https://pypi.python.org/pypi/scipy)
   - [numpy](https://pypi.python.org/pypi/numpy)
