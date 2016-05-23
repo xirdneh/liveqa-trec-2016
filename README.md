@@ -2,11 +2,11 @@
 
 **Introduction**
     
-    This project is based on the [TREC-2016 track LiveQA](https://sites.google.com/site/trecliveqa2016/call-for-participation).
-    In the heart of it uses Latent Dirichlet Allocation (LDA) to infer the semantic topics and uses this model to construct
-    a probability distribution for each of the retrieved documents from the knowledge base. Finally the Jensen-Shannon
-    Distance (JSD) is calculated to have a symilarity measure and the most similar answer is selected as the returned answer.
-    The knowledge base used right now is the yahoo answers database. 
+This project is based on the [TREC-2016 track LiveQA](https://sites.google.com/site/trecliveqa2016/call-for-participation).
+In the heart of it uses Latent Dirichlet Allocation (LDA) to infer the semantic topics and uses this model to construct
+a probability distribution for each of the retrieved documents from the knowledge base. Finally the Jensen-Shannon
+Distance (JSD) is calculated to have a symilarity measure and the most similar answer is selected as the returned answer.
+The knowledge base used right now is the yahoo answers database. 
 
 Leverages on:
 
