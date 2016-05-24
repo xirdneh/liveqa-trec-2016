@@ -28,7 +28,11 @@ def get_question_details(q_url):
         body = ''
     best_answer = soup.find('div', id='ya-best-answer') or ''
     if best_answer:
-        best_answer = best_answer.find('span', class_='ya-q-full-text').get_text()
+        best_answer_txt = best_answer.find('span', class_='ya-q-full-text').get_text()
+        refs = best_answer.find_all('span', class_='ya-ans-ref-text')
+        if refs:
+            refs = ' '.join([r.get_text() for r in refs])
+        best_answer = best_answer_txt + ' ' + refs
 
     answers_ul = soup.find('ul', id='ya-qn-answers')
     answers = []
@@ -38,6 +42,12 @@ def get_question_details(q_url):
         for answer in answers_lis:
             answer_dets = answer.select('.answer-detail')
             text = answer_dets[0].get_text()
+            refs = answer.find_all('span', class_='ya-ans-ref-text')
+            if refs:
+                refs = ' '.join([r.get_text() for r in refs])
+            else:
+                refs = ''    
+            text = text + ' ' + refs
             upvotes = answer_dets[1].select('[itemprop="upvoteCount"]')[0].get_text()
             upvotes = int(upvotes)
             answers.append({'answer': text, 'upvotes': upvotes})
@@ -117,12 +127,14 @@ def search_questions(q, q_url, dictionary):
     t0 = time()
     threads = []
     no_threads = 10
-    print 'url len: {}'.format(len(urls))
+    #print 'url len: {}'.format(len(urls))
     for i in range(len(urls)):
         t = QThread(i, urls[i], qs_dets)
         threads.append(t)
 
-    for j in range(len(threads) / no_threads):
+    lth = len(threads)
+    r = lth / no_threads if lth >= no_threads else lth
+    for j in range(r):
         offset = no_threads * j
         end = offset + no_threads
         if offset + no_threads > len(urls):
