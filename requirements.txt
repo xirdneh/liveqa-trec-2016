@@ -1,0 +1,12 @@
+Django==1.9.6
+mysqlclient==1.3.7
+wheel==0.29.0
+gunicorn==19.5.0
+scipy
+numpy
+nltk
+gensim
+beautifulsoup4
+html5lib
+gevent
+lxml

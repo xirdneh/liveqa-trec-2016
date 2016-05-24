@@ -1,0 +1,6 @@
+lda
+beautifulsoup4
+nltk
+numpy
+gensim
+scipy
