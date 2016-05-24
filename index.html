@@ -130,16 +130,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <form name = "ask" id = "ask" method = "post" action = "http://localhost:11000/">
                     <paper-input name="title" label = "Title"></paper-input>
                     <paper-textarea name="body" label = "Body"></paper-textarea>
-                    <button type="submit">
-                        <paper-button raised>Anser me!</paper-button>
+                    <button type="submit" id = "ask-submit">
+                        <paper-button raised id="ask-paper-submit">Anser me!</paper-button>
                     </button>
                 </form>
                 <p> If you don't have any question in particular you can hit the button below to run a test. 
                     This will grab the latest submitted question to 
                     <a href="https://answers.yahoo.com">Yahoo Answers</a> and will try to answer it.</p>
                 <form id = "test" name = "test" method = "post" action = "http://localhost:11000/">
-                    <button type="submit" tabindex=-1>
-                    <paper-button raised>Answer some random question</paper-button>
+                    <button type="submit" tabindex=-1 id = "test-submit">
+                    <paper-button raised id="test-paper-submit">Answer some random question</paper-button>
                     </button>
                 </form>
                 <div id="answer">

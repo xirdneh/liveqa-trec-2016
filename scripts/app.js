@@ -156,7 +156,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 	var askForm = document.querySelector('#ask');
 	askForm.addEventListener("submit", function(e){
         e.preventDefault();
-
+        document.querySelector('#ask-submit').setAttribute('disabled', true);
+        document.querySelector('#ask-paper-submit').disabled = true;
+        document.querySelector('#test-submit').setAttribute('disabled', true);
+        document.querySelector('#test-paper-submit').disabled = true;
         var ans_div = document.querySelector('#answer');
         ans_div.scrollIntoView();
         ans_div.innerHTML = '<div class="loader"></div><p style="text-align:center;">Coming up with an answer. Please wait.</p> ';
@@ -167,6 +170,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             var ans_div = document.querySelector('#answer');
 			if (r.readyState != 4 || r.status != 200) {
                 ans_div.innerHTML = '<p> Sorry, i could not answer this question. Can you try again? </p>';
+                document.querySelector('#ask-submit').removeAttribute('disabled');
+                document.querySelector('#ask-paper-submit').disabled = false;
+                document.querySelector('#test-submit').removeAttribute('disabled');
+                document.querySelector('#test-paper-submit').disabled = false;
                 return;
             } 
             var resp = JSON.parse(r.responseText);
@@ -175,6 +182,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     '<p>' + resp.answer.q.best_answer.replace('\n', '<br/>') + '</p>' + 
                     '<p><b>Jensen-Shannon Distance between the asked question and the answer:</b> ' + resp.answer.jsd + '</p>' +
                     '<p><b>Processing time to answer (approx.): </b> ' + resp.time + 's</p>';
+            document.querySelector('#ask-submit').removeAttribute('disabled');
+            document.querySelector('#ask-paper-submit').disabled = false;
+            document.querySelector('#test-submit').removeAttribute('disabled');
+            document.querySelector('#test-paper-submit').disabled = false;
 		};
 		r.send("title=" + askForm.elements.title.value + "&body=" + askForm.elements.body.value);
         return false;
@@ -183,6 +194,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 	var testForm = document.querySelector('#test');
 	testForm.addEventListener("submit", function(e){
         e.preventDefault();
+        document.querySelector('#test-submit').setAttribute('disabled', true);
+        document.querySelector('#test-paper-submit').disabled = true;
+        document.querySelector('#ask-submit').setAttribute('disabled', true);
+        document.querySelector('#ask-paper-submit').disabled = true;
         var ans_div = document.querySelector('#answer');
         ans_div.scrollIntoView();
         ans_div.innerHTML = '<div class="loader"></div><p style="text-align:center;">Coming up with an answer. Please wait.</p> ';
@@ -193,6 +208,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             var ans_div = document.querySelector('#answer');
 			if (r.readyState != 4 || r.status != 200){
                 ans_div.innerHTML = '<p> Sorry, i could not answer this question. Can you try again? </p>';
+                document.querySelector('#test-submit').removeAttribute('disabled');
+                document.querySelector('#test-paper-submit').disabled = false;
+                document.querySelector('#ask-submit').removeAttribute('disabled');
+                document.querySelector('#ask-paper-submit').disabled = false;
                 return;
             } 
             var resp = JSON.parse(r.responseText);
@@ -203,6 +222,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     '<p>' + resp.answer.q.best_answer.replace('\n', '<br/>') + '</p>' + 
                     '<p><b>Jensen-Shannon Distance between the asked question and the answer:</b> ' + resp.answer.jsd + '</p>' +
                     '<p><b>Processing time to answer (approx.): </b> ' + resp.time + 's</p>';
+            document.querySelector('#test-submit').removeAttribute('disabled');
+            document.querySelector('#test-paper-submit').disabled = false;
+            document.querySelector('#ask-submit').removeAttribute('disabled');
+            document.querySelector('#ask-paper-submit').disabled = false;
 		};
 		r.send("title=" + askForm.elements.title.value + "&body=" + askForm.elements.body.value);
         return false;
