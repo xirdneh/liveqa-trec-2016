@@ -161,7 +161,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         ans_div.scrollIntoView();
         ans_div.innerHTML = '<div class="loader"></div><p style="text-align:center;">Coming up with an answer. Please wait.</p> ';
 		var r = new XMLHttpRequest(); 
-		r.open("POST", "http://192.168.99.100:8080/liveqa/ask", true);
+		r.open("POST", "http://104.197.124.71/liveqa/ask", true);
         r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		r.onreadystatechange = function () {
             var ans_div = document.querySelector('#answer');
@@ -187,7 +187,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         ans_div.scrollIntoView();
         ans_div.innerHTML = '<div class="loader"></div><p style="text-align:center;">Coming up with an answer. Please wait.</p> ';
 		var r = new XMLHttpRequest(); 
-		r.open("POST", "http://192.168.99.100:8080/liveqa/test", true);
+		r.open("POST", "http://104.197.124.71/liveqa/test", true);
         r.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		r.onreadystatechange = function () {
             var ans_div = document.querySelector('#answer');
