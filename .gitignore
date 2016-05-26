@@ -1,5 +1,7 @@
 # ignore the populated environment file so as not to commit secrets!
 .idea/
+app/
+bower_components/
 env/
 designsafe.env
 certs/
