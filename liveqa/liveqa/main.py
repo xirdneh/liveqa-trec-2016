@@ -226,10 +226,9 @@ def run(q_id, q_category, q_title, q_body):
         'category': q_category
     }
 
-    q_title_proc = nltk_utils.get_word_lists(
-                     [nltk_utils.preprocess_text(q_det['title'])])[0]
+    q_title_proc = nltk_utils.process_title(q_det['title'])
 
-    q_title_proc = q_det['title'].split()[0] + ' ' + ' '.join(set(q_title_proc))
+    #q_title_proc = q_det['title'].split()[0] + ' ' + ' '.join(set(q_title_proc))
 
     q_doc = qs_proc.question_to_document(q_det)
     q_doc = nltk_utils.preprocess_text(q_doc)

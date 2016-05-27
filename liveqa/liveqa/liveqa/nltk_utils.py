@@ -2,6 +2,11 @@ from nltk.stem.wordnet import WordNetLemmatizer
 import nltk
 import re
 
+def process_title(text):
+    tokens = toeknize(d)
+    tags = nltk.pos_tag(tokens)
+    return ' '.join([w for w in tags if w[1].startswith(('VB', 'NN', 'JJ', 'WD', 'CD', 'WRB'))])
+
 def preprocess_text(text):
     text = text.lower()
     text = re.sub(r'https?:\/\/[.\s]*', ' ', text, flags=re.MULTILINE)

@@ -94,7 +94,8 @@ def search(q, q_url, dictionary):
         response = urllib2.urlopen(s_url, timeout=10)
         html = response.read()
         soup = BeautifulSoup(html, 'html5lib')
-        qs = soup.find('ul', id = 'yan-questions')
+        web = soup.find('div', id = 'web')
+        qs = web.find_all('ol')[1]
         lis = qs.find_all('li')
         qs_lis += lis
         #print 'len qs_lis {}'.format(len(qs_lis))
@@ -112,7 +113,7 @@ def search(q, q_url, dictionary):
     seen = set()
     ret = []
     for li in qs_lis:
-        url = ya_domain + li.a['href']
+        url = ya_domain + li.h3.a['href']
         ref_qid = url.split('qid=')[1]
         #print 'qid: {} == ref_qid: {}. {}'.format(qid, ref_qid, qid == ref_qid)
         if qid == ref_qid or ref_qid in seen:
