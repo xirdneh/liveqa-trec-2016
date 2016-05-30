@@ -179,9 +179,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             var resp = JSON.parse(r.responseText);
             //var ans_div = document.querySelector('#answer');
             ans_div.innerHTML = '<h3>Answer</h3>' + 
-                    '<p>' + resp.answer.q.best_answer.replace('\n', '<br/>') + '</p>' + 
+                    '<p>' + resp.answer.q.best_answer_html + '</p>' + 
                     '<p><b>Jensen-Shannon Distance between the asked question and the answer:</b> ' + resp.answer.jsd + '</p>' +
-                    '<p><b>Processing time to answer (approx.): </b> ' + resp.time + 's</p>';
+                    '<p><b>Processing time to answer (approx.): </b> ' + resp.time + 's</p>' + 
+                    '<p><b>Resource:</b> <a href="' + resp.q.url + '">' + resp.q.url + '</a>';
             document.querySelector('#ask-submit').removeAttribute('disabled');
             document.querySelector('#ask-paper-submit').disabled = false;
             document.querySelector('#test-submit').removeAttribute('disabled');
@@ -219,9 +220,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     '<p>' + resp.oq.title + '</p>' + 
                     '<p>' + resp.oq.body + '</p>' +     
                     '<h3>Answer</h3>' + 
-                    '<p>' + resp.answer.q.best_answer.replace('\n', '<br/>') + '</p>' + 
+                    '<p>' + resp.answer.q.best_answer_html + '</p>' + 
                     '<p><b>Jensen-Shannon Distance between the asked question and the answer:</b> ' + resp.answer.jsd + '</p>' +
-                    '<p><b>Processing time to answer (approx.): </b> ' + resp.time + 's</p>';
+                    '<p><b>Processing time to answer (approx.): </b> ' + resp.time + 's</p>' +
+                    '<p><b>Resource:</b> <a href="' + resp.q.url + '">' + resp.q.url + '</a>';
             document.querySelector('#test-submit').removeAttribute('disabled');
             document.querySelector('#test-paper-submit').disabled = false;
             document.querySelector('#ask-submit').removeAttribute('disabled');
