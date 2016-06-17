@@ -116,7 +116,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           <!-- Application sub title -->
           <div class="bottom bottom-container">
-            <div class="bottom-title">This is the frontend application to use the code submitted into the TREC 2016 - LiveQA Track by Josue Balandrano Coronel.</div>
+            <div class="bottom-title">This is the application submitted to the TREC 2016 - LiveQA Track by Josue Balandrano Coronel.</div>
           </div>
         </paper-toolbar>
 
@@ -124,14 +124,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <div class="content">
             <section class="home">
               <paper-material elevation="1">
-                <p> Ask me any general kowledge related question.
-                    Please use Yahoo Answers format i.e., Title and/or Body of question.
+                <p> Ask me any question. From advice to knowledge.<br />
+                    You can enter a <b>any type of question</b> in the <b>title<b/> and further explanation in the <b>body</b>
+                    or you can enter the entire question in the <b>title</b>
                 </p>
                 <form name = "ask" id = "ask" method = "post" action = "http://localhost:11000/">
                     <paper-input name="title" label = "Title"></paper-input>
                     <paper-textarea name="body" label = "Body"></paper-textarea>
                     <button type="submit" id = "ask-submit">
-                        <paper-button raised id="ask-paper-submit">Anser me!</paper-button>
+                        <paper-button raised id="ask-paper-submit">Answer me!</paper-button>
                     </button>
                 </form>
                 <p> If you don't have any question in particular you can hit the button below to run a test. 
@@ -154,9 +155,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                    This application uses different search services to retrieve relevant documents.
                 </p>
                 <p>
-                   This application uses <a href="http://answers.yahoo.com">Yahoo Answers</a> service to search for an answer
-                   that might answer your question. This is because there is already a vast amount of information in that database
-                   and, probabilistically, the correct answer to most common questions will be there.</p>
+                   This application uses <a href="http://answers.yahoo.com">Yahoo Answers</a> service .
+                </p>
                 <p>This application also uses the Bing Web Search API to retrieve more information about a given question<p>
               </paper-material>
 
